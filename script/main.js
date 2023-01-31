@@ -22,12 +22,13 @@ function load(){
 window.onload=load();
 
 //------------------------zoom----------------------
-window.addEventListener('mouseover', function(event){
+window.addEventListener('click', function(event){
+    let target = event.target;
     if(event.target.classList.contains('about__img')){
-        let img=event.target;
-        let card=img.closest('.about__item');
-        card.classList.add('zoom');
-        body.classList.add('stopscroll')
+      
+        let card = target.closest('.about__item');
+        card.classList.toggle('zoom');
+        body.classList.toggle('stopscroll')
         document.addEventListener('keydown', function(event){
             console.log(event.code)
             if(event.code=="Escape"){
@@ -38,13 +39,5 @@ window.addEventListener('mouseover', function(event){
         }
  })
 
- window.addEventListener('mouseout', function(event){
-    if(event.target.classList.contains('about__img')){
-        let img=event.target;
-        let card=img.closest('.about__item');
-        card.classList.remove('zoom');
-        body.classList.remove('stopscroll')
-    }
- })
  
 
