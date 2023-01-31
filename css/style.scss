@@ -351,8 +351,8 @@ background: linear-gradient(0deg, $color-2 26%, $color-black 100%);
 .main__description{
     width: 100vw;
     min-height: 100vh;
-    background-color: $color-black;
-    background-image: url(../img/bg-main.jpg);
+    background-color: $color-black;/*
+    background-image: url(../img/bg-main.jpg);*/
     background-size: cover;
     color: $color-white;
     &.wrapper{
@@ -380,8 +380,8 @@ background: linear-gradient(0deg, $color-2 26%, $color-black 100%);
 .about {width: 100%;
     height: 100%;
     background-color: $color-white;
-    color: $color-black;
-    background-image: url(../img/bg-about.png);
+    color: $color-black;/*
+    background-image: url(../img/bg-about.png);*/
     background-size: 50%;
     background-repeat: repeat;
     padding: 1em 0;
@@ -443,6 +443,18 @@ background: linear-gradient(0deg, $color-2 26%, $color-black 100%);
     text-align: center;
     margin-top: 0.8em;
 }}
+.about__item.zoom {
+    position:fixed;
+    z-index: 100;
+    top:50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 80%;
+    height: auto;
+     min-width: 320px;
+      text-align:center;
+   
+}
 /*-----------------------------FOOTER------------------------------*/
 .footer { -webkit-box-flex:1; -ms-flex:1 1  5%; flex:1 1  5%;
     width: 100vw;
@@ -473,4 +485,44 @@ background: linear-gradient(0deg, $color-2 26%, $color-black 100%);
         color: $color-1-dark;
         border: 2px solid $color-1-dark;
     }
+}
+/*-------------preloader---------------------------------*/
+.preloader{
+    display: block;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color-black;
+    visibility: visible;
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+}
+
+.preloader__line{
+position: absolute;
+top: 0;
+left: 50%;
+    width: 5px;
+    content: '';
+    height: 100%;
+    background: linear-gradient(0deg, $color-1 10%, $color-white 90%);
+}
+
+.preloader.hide{
+    animation:hiden 1s ;
+}
+@keyframes hiden{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+.none{
+    display: none;
 }
